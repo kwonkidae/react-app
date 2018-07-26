@@ -3,26 +3,27 @@ node_js:
 - 8.9.4
 sudo: false
 before_install:
-
+- openssl aes-256-cbc -K $encrypted_b6e2e769a5bd_key -iv $encrypted_b6e2e769a5bd_iv
+  -in deploy_rsa.enc -out deploy_rsa -d
 - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.7.0
 - export PATH=$HOME/.yarn/bin:$PATH
-install:
-- echo $ssh_key >> $HOME/.ssh/known_hosts
-- cat $HOME/.ssh/known_hosts
+
+
 before_deploy:
-- openssl aes-256-cbc -K $encrypted_b6e2e769a5bd_key -iv $encrypted_b6e2e769a5bd_iv
-  -in deploy_rsa.enc -out /tmp/deploy_rsa -d
 - eval "$(ssh-agent -s)"
-- chmod 600 /tmp/deploy_rsa
-- ssh-add /tmp/deploy_rsa
+- chmod 600 /tmp/deploy\_rsa
+- ssh-add /tmp/deploy\_rsa
+
 cache:
   yarn: true
   directories:
   - node_modules
-script:
+
+  script:
 - yarn install
 - yarn test
 - yarn build
+
 deploy:
   provider: script
   skip_cleanup: true
