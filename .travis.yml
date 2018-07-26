@@ -1,9 +1,8 @@
 language: node_js
 node_js:
   - "8.9.4"
-yarn:
-  - "1.7.0"
 cache:
+  yarn: true
   directories:
   - node_modules
 script:
@@ -16,4 +15,4 @@ deploy:
   on:
     branch: master
 
-    
+
