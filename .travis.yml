@@ -32,3 +32,5 @@ deploy:
   script: scp -p 5022 /build web@www.lawbot.io:~/build
   on:
     branch: master
+
+    
