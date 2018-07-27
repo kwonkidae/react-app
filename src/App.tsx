@@ -3,8 +3,6 @@ import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import './App.sass';
 
-// import logo from './logo.svg';
-
 class App extends React.Component {
   public render() {
     return (
