@@ -11,6 +11,10 @@ before_deploy:
 - eval "$(ssh-agent -s)"
 - chmod 600 /tmp/deploy\_rsa
 - ssh-add /tmp/deploy\_rsa
+
+before_script:
+  - echo -e "Host www.lawbot.io\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+
 cache:
   yarn: true
   directories:
