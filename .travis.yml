@@ -29,7 +29,7 @@ deploy:
   github_token: "$github_token"
   local_dir: build
   script: 
-    scp -P 5022 -r build/ web@www.lawbot.io:/home/web/;
+    scp -P 5022 -r build/ web@www.lawbot.io:/home/web/build/html;
     ssh -p 5022 web@www.lawbot.io "sudo docker-compose -f ./build/docker-compose.yml down && sudo docker-compose -f ./build/docker-compose.yml up -d"
   on:
     branch: master
