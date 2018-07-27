@@ -1,5 +1,4 @@
 {
   "esversion": 6,
-  "node": true,
-  "no-bitwise": false
+  "node": true
 }
