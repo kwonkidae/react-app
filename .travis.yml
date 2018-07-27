@@ -28,6 +28,6 @@ deploy:
   skip_cleanup: true
   github_token: "$github_token"
   local_dir: build
-  script: scp -P 5022 -r build/ web@www.lawbot.io:/home/web/build/
+  script: scp -P 5022 -r build/ web@www.lawbot.io:/home/web/
   on:
     branch: master
