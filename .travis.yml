@@ -7,23 +7,18 @@ before_install:
   -in deploy_rsa.enc -out deploy_rsa -d
 - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.7.0
 - export PATH=$HOME/.yarn/bin:$PATH
-
-
 before_deploy:
 - eval "$(ssh-agent -s)"
 - chmod 600 /tmp/deploy\_rsa
 - ssh-add /tmp/deploy\_rsa
-
 cache:
   yarn: true
   directories:
   - node_modules
-
-  script:
+script:
 - yarn install
 - yarn test
 - yarn build
-
 deploy:
   provider: script
   skip_cleanup: true
@@ -33,4 +28,4 @@ deploy:
   on:
     branch: master
 
-    
+
