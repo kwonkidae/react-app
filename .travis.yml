@@ -27,9 +27,9 @@ deploy:
   provider: script
   skip_cleanup: true
   github_token: "$github_token"
-  local_dir: build
+  local_dir: html
   script: 
-    scp -P 5022 -r build/ web@www.lawbot.io:/home/web/build/html;
+    scp -P 5022 -r html web@www.lawbot.io:/home/web/build;
     ssh -p 5022 web@www.lawbot.io "sudo docker-compose -f ./build/docker-compose.yml down && sudo docker-compose -f ./build/docker-compose.yml up -d"
   on:
     branch: master
