@@ -33,3 +33,5 @@ deploy:
     ssh -p 5022 web@www.lawbot.io "sudo docker-compose -f ./lawtalk_news/docker-compose.yml down && sudo docker-compose -f ./lawtalk_news/docker-compose.yml up -d"
   on:
     branch: master
+
+    
